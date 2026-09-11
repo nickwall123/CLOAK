@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     var body: some View {
         NavigationStack {
@@ -32,9 +33,16 @@ struct ContentView: View {
                 // Buttons
                 VStack(spacing: 15) {
                     
-                    Button(action: {
-                        print("Scan tapped")
-                    }) {
+                    NavigationLink(destination: RegisterItemView()) {
+                        Text("Register Item")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.black)
+                            .foregroundColor(.white)
+                            .cornerRadius(12)
+                    }
+                    
+                    NavigationLink(destination: ScanView()) {
                         Text("Scan Item")
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -43,9 +51,7 @@ struct ContentView: View {
                             .cornerRadius(12)
                     }
                     
-                    Button(action: {
-                        print("My Items tapped")
-                    }) {
+                    NavigationLink(destination: MyItemsView()) {
                         Text("My Items")
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -63,4 +69,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(ItemStore())
 }

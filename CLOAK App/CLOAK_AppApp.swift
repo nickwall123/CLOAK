@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct CLOAK_AppApp: App {
+    
+    @StateObject var store = ItemStore()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(store)
         }
     }
 }
