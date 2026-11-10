@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111713">
+  <title>CLOAK — Digital Product Passport</title>
+  <style>
+    :root { color-scheme: light; --ink:#17211b; --muted:#68736b; --line:#e3e8e3; --paper:#f5f7f4; --green:#245b3b; --pale:#eaf2ec; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    .wrap { max-width:760px; margin:0 auto; padding:30px 18px 56px; }
+    header { display:flex; align-items:center; justify-content:space-between; margin-bottom:34px; }
+    .brand { font-size:22px; letter-spacing:.22em; font-weight:750; }
+    .tagline { color:var(--muted); font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
+    .eyebrow { color:var(--green); font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+    h1 { font-size:clamp(27px,5vw,38px); line-height:1.12; letter-spacing:-.035em; margin:8px 0 10px; }
+    .intro { color:var(--muted); margin:0 0 24px; }
+    .card { background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 8px 28px #17211b0a; }
+    .product { display:grid; grid-template-columns: minmax(130px, .8fr) 1.2fr; gap:24px; padding:24px; align-items:center; }
+    .visual { min-height:210px; border-radius:12px; background:linear-gradient(145deg,#dfe6df,#aebcaf); display:grid; place-items:center; color:#3c4d40; }
+    .visual svg { width:72%; max-width:170px; }
+    .product h2 { margin:7px 0 5px; font-size:23px; line-height:1.2; }
+    .muted { color:var(--muted); }
+    .id { font:12px ui-monospace,SFMono-Regular,Menlo,monospace; color:var(--muted); overflow-wrap:anywhere; }
+    .status { display:inline-flex; align-items:center; gap:8px; padding:7px 11px; background:var(--pale); color:var(--green); border-radius:999px; font-size:12px; font-weight:700; margin-top:16px; }
+    .dot { width:7px; height:7px; border-radius:50%; background:#388451; }
+    .section { padding:22px 24px; border-top:1px solid var(--line); }
+    .section h3 { margin:0 0 14px; font-size:15px; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px 22px; }
+    .field label { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.09em; margin-bottom:3px; }
+    .field strong { font-size:14px; font-weight:600; }
+    .timeline { display:grid; gap:15px; }
+    .event { display:flex; gap:12px; align-items:flex-start; }
+    .event-icon { width:28px; height:28px; flex:0 0 28px; border-radius:50%; background:var(--pale); color:var(--green); display:grid; place-items:center; font-weight:700; }
+    .event strong { display:block; font-size:13px; }
+    .event small { color:var(--muted); }
+    .privacy { background:#f7f9f7; border:1px solid var(--line); border-radius:12px; padding:14px 16px; color:var(--muted); font-size:12px; margin-top:18px; }
+    footer { text-align:center; color:var(--muted); font-size:11px; margin-top:24px; letter-spacing:.04em; }
+    @media(max-width:560px) { .product { grid-template-columns:1fr; gap:16px; padding:18px; } .visual { min-height:155px; } .section { padding:19px 18px; } .grid { grid-template-columns:1fr 1fr; gap:14px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="brand">CLOAK</div>
+      <div class="tagline">Product identity</div>
+    </header>
+
+    <div class="eyebrow">Digital product passport</div>
+    <h1>A product with a story.</h1>
+    <p class="intro">A digital record of this item's identity, registration and ownership history.</p>
+
+    <article class="card">
+      <section class="product">
+        <div class="visual" aria-label="Illustration of a jacket">
+          <svg viewBox="0 0 180 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+            <path d="M58 24 90 12l32 12 34 35-19 24-17-14v119H60V69L43 83 24 59l34-35Z" fill="#35483A" stroke="#26372C" stroke-width="4" stroke-linejoin="round"/>
+            <path d="m58 24 32 26 32-26M90 50v138M76 58v115M104 58v115" stroke="#A9B9AA" stroke-width="3"/>
+            <path d="M90 51v137" stroke="#1D2B21" stroke-width="2"/>
+            <path d="M69 108h15v24H69zM96 108h15v24H96z" fill="#26372C"/>
+            <path d="M83 25 90 50l7-25" stroke="#A9B9AA" stroke-width="2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="eyebrow">Registered item</div>
+          <h2 id="product-name">CLOAK Sample Jacket</h2>
+          <div class="muted" id="product-model">Technical outerwear · Sample edition</div>
+          <p class="id" id="item-id">Item ID: CLK-000001</p>
+          <div class="status"><span class="dot"></span><span id="ownership-status">Ownership claimed</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Product details</h3>
+        <div class="grid">
+          <div class="field"><label>Brand</label><strong id="brand">CLOAK Demo</strong></div>
+          <div class="field"><label>Category</label><strong>Outerwear</strong></div>
+          <div class="field"><label>Registered</label><strong id="registered">November 2026</strong></div>
+          <div class="field"><label>Verification</label><strong>Identity record created</strong></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Passport activity</h3>
+        <div class="timeline">
+          <div class="event"><div class="event-icon">✓</div><div><strong>Item registered</strong><small>Digital passport created for this item</small></div></div>
+          <div class="event"><div class="event-icon">✓</div><div><strong>Ownership claimed</strong><small>Current ownership status recorded</small></div></div>
+          <div class="event"><div class="event-icon">—</div><div><strong>Ownership transfers</strong><small>No transfers recorded in this demo</small></div></div>
+        </div>
+        <div class="privacy">Owner privacy protected. This public demo does not display a person's name, email address or other private account information.</div>
+      </section>
+    </article>
+    <footer> CLOAK · DIGITAL PRODUCT IDENTITY · PROTOTYPE PAGE </footer>
+  </main>
+  <script>
+    // Demo only: the ID is read from the URL. Product records will later come from the CLOAK database.
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id") || "CLK-000001";
+    document.getElementById("item-id").textContent = "Item ID: " + id;
+    document.title = "CLOAK — " + id;
+  </script>
+</body>
+</html>
